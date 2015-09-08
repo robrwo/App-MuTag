@@ -1,0 +1,7 @@
+tmp/
+.git/
+~$
+blib/
+.gitignore
+pm_to_blib
+.bak$
