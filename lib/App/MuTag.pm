@@ -82,13 +82,15 @@ method clean_metadata($mp3) {
   }
 
     # TODO: whitespace option
-    foreach my $id (qw/ TALB TIT1 TIT2 TIT3 TPE1 TPE2 TPE3 TPE4 TSOA TSOP TSOT
-                        TSST TOAL TOPE /) {
+  foreach my $id (qw/ TALB TIT1 TIT2 TIT3 TPE1 TPE2 TPE3 TPE4 TSOA TSOP TSOT
+                      TSST TOAL TOPE /) {
 
-      my ($frame) = $mp3->get_frames($id) or next;
-      $frame->text( trim_whitespace( $frame->text ) );
+    my ($frame) = $mp3->get_frames($id) or next;
+    my $text = trim_whitespace( $frame->text );
+    $text =~ s/([a-z])/uc($1)/eg;
+    $frame->text( $text );
 
-    }
+  }
 
 }
 
