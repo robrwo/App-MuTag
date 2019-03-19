@@ -90,7 +90,7 @@ option parse_pattern => ( # TODO_ alias pattern
   is      => 'ro',
   isa     => Str,
   format  => 's',
-  default => '(?<TPOS>\d)?-?(?<TRCK>\d\d)(?: |-| - )(?<TIT2>[^- ].+)',
+  default => '(?<TPOS>\d)?-?(?<TRCK>\d\d)(?: |-| - |\. )(?<TIT2>[^- ].+)',
   doc     => 'parsing pattern',
 );
 
